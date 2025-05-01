@@ -42,13 +42,6 @@ export class ProfileComponent implements OnInit {
 
     this.user = this.authService.usuario
 
-    if (this.user.image) {
-      this.profilePhoto = 'http://localhost:8081/uploads/institutions/' + this.user.image
-    }
-    else {
-      this.profilePhoto = "";
-    }
-
     this.fullName = this.user.name;
     this.userName = this.user.userName;
     this.userEmail = this.user.email;
@@ -82,52 +75,6 @@ export class ProfileComponent implements OnInit {
   // Change password
   changePassword() {
     this.changePasswordModal.openModal();
-  }
-
-  triggerFileInput() {
-    const fileInput = document.getElementById('photoInput') as HTMLInputElement;
-    fileInput.click(); // Simula el clic en el input file
-  }
-  
-  onPhotoSelected(event: any) {
-
-    const file = event.target.files[0];
-
-    if (file) {
-  
-      // Aquí puedes enviar el archivo al backend
-      const formData = new FormData();
-      formData.append('image', file);
-      formData.append('userId', this.user.id);
-  
-      // Llamada al servicio para guardar la foto
-      this.apiService.post('users/uploadImage', formData).subscribe({
-        next: (data: any) => {
-
-          localStorage.setItem('user', JSON.stringify(data.user));
-          this.authService.usuario = data.user;
-
-          if (data.user.image) this.profilePhoto = 'http://localhost:8081/uploads/institutions/' + data.user.image;
-        },
-        error: (err: any) => console.error('Error al subir la foto:', err)
-      });
-    }
-  }
-
-  // Delete profile picture
-  deletePhoto() {
-    this.apiService.post('users/deleteImage', {userId: this.user.id}).subscribe({
-      next: (data) => {
-        
-        localStorage.setItem('user', JSON.stringify(data.user));
-        this.authService.usuario = data.user;
-        
-        this.profilePhoto = "";
-      },
-      error : (err) => {
-          console.log(err);
-      },
-    })
   }
 
   formInvalid(form: string) {

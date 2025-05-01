@@ -2,7 +2,6 @@
 
     <nav class="sidebar" [class.collapsed]="isCollapsed">
       
-      <!-- Sección superior con la foto y nombre de la institución -->
       <div class="section" >
 
         <button (click)="toggleSidebar()" class="btn btn-secondary toggle-btn-collapsed">
@@ -11,7 +10,6 @@
 
       </div>
 
-  
       <!-- Menú del sidebar -->
       <ul class="list-unstyled">
         <li><a routerLink="/main/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="bi bi-house"></i> <span *ngIf="!isCollapsed">Home</span></a></li>

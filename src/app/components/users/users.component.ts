@@ -78,7 +78,7 @@ export class UsersComponent implements OnInit {
     if (nombre) where.name = nombre;
     if (address) where.address = address;
 
-    this.apiService.get('/getUsers', {where}).subscribe(data => {
+    this.apiService.get('users/getUsers', {where}).subscribe(data => {
       this.filteredData = data;
       this.changeDetectorRef.detectChanges();
       this.dataGrid.paginateData();

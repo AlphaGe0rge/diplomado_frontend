@@ -10,13 +10,12 @@
     <!-- Foto de Perfil -->
     <div class="col-md-4 text-center">
       <div class="profile-photo-container">
-        <img [src]="profilePhoto || '../../../assets/perfil.avif'" alt="Foto de Perfil" class="profile-photo img-fluid">
+        <img src="assets/foto-perfil.webp" alt="Foto de Perfil" class="profile-photo img-fluid">
       </div>
       <input 
         type="file" 
         id="photoInput" 
         style="display: none;" 
-        (change)="onPhotoSelected($event)" 
         accept="image/*">
     </div>
 

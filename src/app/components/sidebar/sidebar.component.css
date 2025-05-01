@@ -21,13 +21,13 @@
   right: -25px; /* Para que se vea sobre el borde del sidebar */
   z-index: 1000;
   border: none;
-  background: #007bff;
+  background: #343a40;
   color: white;
   padding: 5px 10px;
   border-radius: 50%;
 }
 .toggle-btn-collapsed {
-  background: #007bff;
+  background: #343a40;
   color: white;
   border-radius: 50%;
   padding: 5px 10px;  }

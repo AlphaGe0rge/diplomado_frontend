@@ -9,19 +9,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  // Ruta para la imagen del logo
-  companyLogo = '../../../assets/logotipo.webp';
-  
   // Información del usuario
   userPhoto = '../../../assets/perfil.avif';
   userName = 'guest';
   
-  // Contador de mensajes no leídos
-  unreadMessagesCount = 0;
-  
-  // Mensajes recientes
-  recentMessages: any[] = [];
-
   constructor(private router: Router,
               private authService: AuthService
   ) { }
